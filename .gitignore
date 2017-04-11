@@ -1,0 +1,13 @@
+
+.DS_Store
+
+#用户数据文件夹（无用）
+xcuserdata/
+
+#使用合成脚本生成的build文件夹
+build/
+
+#使用合成脚本生成的Products文件夹
+Products/
+Product/
+
