@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SQLogToolManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    NSLog(@"%@",NSHomeDirectory());
+    [[SQLogToolManager shareManager] logIntial];
+    
     return YES;
 }
 

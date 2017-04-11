@@ -13,6 +13,9 @@
 		0468D7731E9CB09B00FE3C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0468D7711E9CB09B00FE3C2D /* Main.storyboard */; };
 		0468D7751E9CB09B00FE3C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0468D7741E9CB09B00FE3C2D /* Assets.xcassets */; };
 		0468D7781E9CB09B00FE3C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0468D7761E9CB09B00FE3C2D /* LaunchScreen.storyboard */; };
+		0468D7821E9CB22500FE3C2D /* SQFloatWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468D7811E9CB22500FE3C2D /* SQFloatWindow.m */; };
+		0468D7851E9CB23700FE3C2D /* SQLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468D7841E9CB23700FE3C2D /* SQLog.m */; };
+		0468D7881E9CB25500FE3C2D /* SQLogToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468D7871E9CB25500FE3C2D /* SQLogToolManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		0468D7741E9CB09B00FE3C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0468D7771E9CB09B00FE3C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0468D7791E9CB09B00FE3C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0468D7801E9CB22500FE3C2D /* SQFloatWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQFloatWindow.h; sourceTree = "<group>"; };
+		0468D7811E9CB22500FE3C2D /* SQFloatWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQFloatWindow.m; sourceTree = "<group>"; };
+		0468D7831E9CB23700FE3C2D /* SQLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLog.h; sourceTree = "<group>"; };
+		0468D7841E9CB23700FE3C2D /* SQLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLog.m; sourceTree = "<group>"; };
+		0468D7861E9CB25500FE3C2D /* SQLogToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLogToolManager.h; sourceTree = "<group>"; };
+		0468D7871E9CB25500FE3C2D /* SQLogToolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLogToolManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 		0468D7671E9CB09B00FE3C2D /* iOS10LogTool */ = {
 			isa = PBXGroup;
 			children = (
+				0468D77F1E9CB1EF00FE3C2D /* SQLogTool */,
 				0468D76B1E9CB09B00FE3C2D /* AppDelegate.h */,
 				0468D76C1E9CB09B00FE3C2D /* AppDelegate.m */,
 				0468D76E1E9CB09B00FE3C2D /* ViewController.h */,
@@ -77,6 +87,19 @@
 				0468D7691E9CB09B00FE3C2D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0468D77F1E9CB1EF00FE3C2D /* SQLogTool */ = {
+			isa = PBXGroup;
+			children = (
+				0468D7801E9CB22500FE3C2D /* SQFloatWindow.h */,
+				0468D7811E9CB22500FE3C2D /* SQFloatWindow.m */,
+				0468D7831E9CB23700FE3C2D /* SQLog.h */,
+				0468D7841E9CB23700FE3C2D /* SQLog.m */,
+				0468D7861E9CB25500FE3C2D /* SQLogToolManager.h */,
+				0468D7871E9CB25500FE3C2D /* SQLogToolManager.m */,
+			);
+			path = SQLogTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0468D7881E9CB25500FE3C2D /* SQLogToolManager.m in Sources */,
+				0468D7821E9CB22500FE3C2D /* SQFloatWindow.m in Sources */,
 				0468D7701E9CB09B00FE3C2D /* ViewController.m in Sources */,
 				0468D76D1E9CB09B00FE3C2D /* AppDelegate.m in Sources */,
 				0468D76A1E9CB09B00FE3C2D /* main.m in Sources */,
+				0468D7851E9CB23700FE3C2D /* SQLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
