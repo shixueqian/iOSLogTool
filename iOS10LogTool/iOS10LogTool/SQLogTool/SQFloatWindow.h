@@ -13,7 +13,7 @@
 /**
  点击事件block
  */
-@property (nonatomic,copy) void(^clickBolcks)(NSInteger i);
+@property (nonatomic,copy) void(^clickBlocks)(NSInteger i);
 
 /**
  悬浮窗初始化

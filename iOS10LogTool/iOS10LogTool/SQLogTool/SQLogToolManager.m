@@ -115,7 +115,7 @@
         __weak typeof(self) weakSelf = self;
         
         //点击事件处理
-        _floatWindow.clickBolcks = ^(NSInteger i){
+        _floatWindow.clickBlocks = ^(NSInteger i){
             
             switch (i)
             {

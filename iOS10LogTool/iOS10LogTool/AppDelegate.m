@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+//需要导入头文件
 #import "SQLogToolManager.h"
 
 @interface AppDelegate ()
@@ -19,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     NSLog(@"%@",NSHomeDirectory());
+    //初始化
     [[SQLogToolManager shareManager] logIntial];
     
     return YES;

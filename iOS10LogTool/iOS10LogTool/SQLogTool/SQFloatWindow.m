@@ -340,8 +340,8 @@
     }
     
     UIButton *button = (UIButton *)sender;
-    if (self.clickBolcks) {
-        self.clickBolcks(button.tag);
+    if (self.clickBlocks) {
+        self.clickBlocks(button.tag);
     }
 }
 
