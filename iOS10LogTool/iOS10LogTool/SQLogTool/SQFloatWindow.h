@@ -4,7 +4,9 @@
 //
 //  Created by 石学谦 on 17/4/11.
 //  Copyright © 2017年 shixueqian. All rights reserved.
-//
+//  github地址：https://github.com/shixueqian/iOS10LogDebugTool
+//  简书介绍地址：http://www.jianshu.com/p/23011d141622
+//  悬浮窗处理类
 
 #import <UIKit/UIKit.h>
 
@@ -22,10 +24,9 @@
  @param frame       frame
  @param mainBtnName 主按钮name
  @param titles      数组，子按钮的name
- @param bgcolor     颜色
  @return            SQFloatWindow
  */
-- (instancetype)initWithFrame:(CGRect)frame mainBtnName:(NSString*)mainBtnName titles:(NSArray *)titles bgcolor:(UIColor *)bgcolor;
+- (instancetype)initWithFrame:(CGRect)frame mainBtnName:(NSString*)mainBtnName titles:(NSArray *)titles;
 
 /**
  显示悬浮窗

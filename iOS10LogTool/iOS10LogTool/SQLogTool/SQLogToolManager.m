@@ -4,6 +4,8 @@
 //
 //  Created by 石学谦 on 17/4/11.
 //  Copyright © 2017年 shixueqian. All rights reserved.
+//  github地址：https://github.com/shixueqian/iOS10LogDebugTool
+//  简书介绍地址：http://www.jianshu.com/p/23011d141622
 //
 
 #import "SQLogToolManager.h"
@@ -39,7 +41,6 @@
     });
     return manager;
 }
-
 
 
 //初始化log类型
@@ -110,7 +111,7 @@
         //        [SQLog setLogLevel:LOGLEVELD];
         
         //floatWindow 初始化
-        _floatWindow = [[SQFloatWindow alloc] initWithFrame:CGRectMake(0, 200, 50, 50) mainBtnName:@"调试log" titles:@[@"预览",@"Xcode",@"关闭"] bgcolor:[UIColor blackColor]];
+        _floatWindow = [[SQFloatWindow alloc] initWithFrame:CGRectMake(0, 200, 50, 50) mainBtnName:@"调试log" titles:@[@"预览",@"Xcode",@"关闭"]];
         
         __weak typeof(self) weakSelf = self;
         

@@ -4,7 +4,8 @@
 //
 //  Created by 石学谦 on 17/4/11.
 //  Copyright © 2017年 shixueqian. All rights reserved.
-//
+//  github地址：https://github.com/shixueqian/iOS10LogDebugTool
+//  简书介绍地址：http://www.jianshu.com/p/23011d141622
 
 #import "SQFloatWindow.h"
 
@@ -24,18 +25,18 @@
 @interface SQFloatWindow()
 
 @property(nonatomic)NSInteger frameWidth;
-@property(nonatomic)BOOL  isShowTab;
-@property(nonatomic,strong)UIPanGestureRecognizer *pan;
-@property(nonatomic,strong)UITapGestureRecognizer *tap;
-@property(nonatomic,strong)UIButton *mainBtn;
+@property(nonatomic)BOOL  isShowTab;//是否展开
+@property(nonatomic,strong)UIPanGestureRecognizer *pan;//移动手势
+@property(nonatomic,strong)UITapGestureRecognizer *tap;//点击主按钮
+@property(nonatomic,strong)UIButton *mainBtn;//主按钮
 @property(nonatomic,strong)UIView *contentView;
-@property(nonatomic,strong)NSArray *titles;
-@property(nonatomic,strong)UIColor *bgcolor;
+@property(nonatomic,strong)NSArray *titles;//子按钮标题数组
 
 
 @end
 
 @implementation SQFloatWindow
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -45,7 +46,7 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame mainBtnName:(NSString*)mainBtnName titles:(NSArray *)titles bgcolor:(UIColor *)bgcolor{
+- (instancetype)initWithFrame:(CGRect)frame mainBtnName:(NSString*)mainBtnName titles:(NSArray *)titles{
     if(self = [super initWithFrame:frame])
     {
         NSAssert(mainBtnName != nil, @"mainBtnName can't be nil !");
@@ -53,10 +54,11 @@
         
         _isShowTab = FALSE;
         
+        //存储keywindow，因为我们自己的悬浮窗window设置显示的会把自己设置为keywindow，但是实际上我们不需要作为keywindow，所以悬浮窗window显示完之后需要把keywindow还回去
         UIWindow *preKeyWindow = [UIApplication sharedApplication].keyWindow;
         
-        self.backgroundColor = [UIColor clearColor];
-        self.windowLevel = UIWindowLevelAlert + 1;
+        self.backgroundColor = [UIColor lightGrayColor];
+        self.windowLevel = UIWindowLevelAlert + 1;//设置window层级
         self.rootViewController = [UIViewController new];
         [self makeKeyAndVisible];
         
@@ -65,7 +67,6 @@
             [preKeyWindow makeKeyWindow];
         }
         
-        _bgcolor = bgcolor;
         _frameWidth = frame.size.width;
         _titles = titles;
         
@@ -75,7 +76,7 @@
         //内容view
         [self setupContentView];
         
-        //添加按钮
+        //添加子按钮
         [self setupButtons];
         
         //主按钮
@@ -95,6 +96,7 @@
     
 }
 
+//主按钮
 - (void)setupMainBtnWithName:(NSString *)mainBtnName
 {
     _mainBtn =  [UIButton buttonWithType:UIButtonTypeCustom];
@@ -113,6 +115,7 @@
     [self addSubview:_mainBtn];
 }
 
+//内容view
 - (void)setupContentView
 {
     _contentView = [[UIView alloc] initWithFrame:(CGRect){_frameWidth ,0,_titles.count * (_frameWidth),_frameWidth}];
@@ -121,13 +124,13 @@
     [self addSubview:_contentView];
 }
 
+//添加子按钮
 - (void)setupButtons{
     
     for (int i = 0; i < _titles.count; ++i)
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setFrame: CGRectMake(self.frameWidth * i , marginWith/2, self.frameWidth-marginWith , self.frameWidth-marginWith )];
-        [button setBackgroundColor:[UIColor clearColor]];
         
         [button setTitle:_titles[i] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize: self.frameWidth/5];
@@ -156,7 +159,7 @@
 }
 
 
-//改变位置
+//拖拽悬浮窗（pan移动手势响应）
 - (void)locationChange:(UIPanGestureRecognizer*)p
 {
     CGPoint panPoint = [p locationInView:[[UIApplication sharedApplication] keyWindow]];
@@ -232,7 +235,7 @@
     }
 }
 
-//点击事件
+//展开/收回子按钮（主按钮响应）
 - (void)click:(UITapGestureRecognizer*)p
 {
     
@@ -266,12 +269,7 @@
                 
                 self.mainBtn.frame = CGRectMake((_titles.count * (self.frameWidth + marginWith/2)), 0, self.frameWidth, self.frameWidth);
                 self.frame = CGRectMake(self.frame.origin.x  - _titles.count * (self.frameWidth + marginWith/2), self.frame.origin.y, (WIDTH + _titles.count * (self.frameWidth + marginWith/2)) ,self.frameWidth);
-            }
-            if (_bgcolor) {
-                self.backgroundColor = _bgcolor;
-            }else{
-                self.backgroundColor = [UIColor grayColor];
-            }
+            } 
             
         }];
         //移除pan手势
@@ -297,12 +295,12 @@
                 self.mainBtn.frame = CGRectMake(0, 0, self.frameWidth, self.frameWidth);
                 self.frame = CGRectMake(self.frame.origin.x + _titles.count * (self.frameWidth + marginWith/2), self.frame.origin.y, self.frameWidth ,self.frameWidth);
             }
-            self.backgroundColor = [UIColor clearColor];
         }];
         [self performSelector:@selector(changeStatus) withObject:nil afterDelay:statusChangeDuration];
     }
 }
 
+//改变悬浮窗状态
 - (void)changeStatus
 {
     [UIView animateWithDuration:1.0 animations:^{

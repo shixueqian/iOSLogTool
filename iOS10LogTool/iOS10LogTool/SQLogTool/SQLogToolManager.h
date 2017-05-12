@@ -4,7 +4,9 @@
 //
 //  Created by 石学谦 on 17/4/11.
 //  Copyright © 2017年 shixueqian. All rights reserved.
-//
+//  github地址：https://github.com/shixueqian/iOS10LogDebugTool
+//  简书介绍地址：http://www.jianshu.com/p/23011d141622
+//  本工具的管理类，使用的时候就用这个类即可。
 
 #import <Foundation/Foundation.h>
 #import "SQLog.h"
@@ -30,14 +32,10 @@ typedef enum
     SQLogToolManagerLevelNone = 0,     //不打印log
     SQLogToolManagerLevelLog = 1,      //只在控制台显示log
     SQLogToolManagerLevelText = 2      //在控制台显示log及在本地写入log
-} SQLogToolManagerLevel;
+} SQLogToolManagerLevel;//log模式
 
 @interface SQLogToolManager : NSObject
 
-/**
- logLevel
- */
-@property (nonatomic, assign) SQLogToolManagerLevel logLevel;
 
 /**
  单例
@@ -48,6 +46,12 @@ typedef enum
  初始化
  */
 - (void)logIntial;
+
+
+/**
+ logLevel，log模式，通过这个属性设置log的模式
+ */
+@property (nonatomic, assign) SQLogToolManagerLevel logLevel;
 
 @end
 
