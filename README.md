@@ -66,6 +66,7 @@
     [SQLogToolManager shareManager].logLevel = SQLogToolManagerLevelText;
 }
 ```
+
 * 在需要打印Log的地方使用 ``NSLogD()``来替换平常用的``NSLog()``
 代码示例：
 
